@@ -3,7 +3,7 @@
 img {
     width: 320px;
     height: 350px;
-    animation: togs 5s linear infinite;
+    animation: zake 10s linear infinite;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.442);
     padding: 0.1%;
 }
@@ -21,10 +21,9 @@ h2{
 body {
     display: flex;
     justify-content: center;
-
 }
 
-@keyframes togs {
+@keyframes zake {
     0% {
         margin-top: 100%;
         transform: rotateY(360deg);
@@ -95,3 +94,5 @@ h2 {
     font-size: 17px;
 
 }
+
+
