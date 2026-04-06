@@ -1,194 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<title>Bata no Zake</title>
+    <meta charset="UTF-8">
+    <title>Bata no Zake</title>
 
-<style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #111;
+            color: white;
+        }
 
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background:#111;
-    color:white;
-}
-
-h1{
-    margin-top:20px;
-}
+        h1 {
+            margin-top: 20px;
+            color: red;
+        }
 
 
-/* personagem */
-#zake{
-    width:300px;
-    margin-top:30px;
-    transition:0.1s;
-}
+        /* personagem */
+        #zake {
+            width: 300px;
+            margin-top: 30px;
+            transition: 0.1s;
+        }
 
-/* animação de impacto */
-.hit{
-    transform: translateX(10px);
-}
+        /* animação de impacto */
+        .hit {
+            transform: translateX(10px);
+        }
 
-/* barra de vida */
-.barra{
-    width:300px;
-    height:20px;
-    background:#333;
-    margin:20px auto;
-    border-radius:10px;
-    overflow:hidden;
-}
+        /* barra de vida */
+        .barra {
+            width: 300px;
+            height: 20px;
+            background: #333;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-#vida{
-    height:100%;
-    width:100%;
-    background:lime;
-    transition:0.3s;
-}
+        #vida {
+            height: 100%;
+            width: 100%;
+            background: lime;
+            transition: 0.3s;
+        }
 
-/* ferramentas */
-.tools{
-    margin-top:20px;
-}
+        /* ferramentas */
+        .tools {
+            margin-top: 20px;
+        }
 
-button{
-    font-size:30px;
-    margin:10px;
-    padding:10px 20px;
-    cursor:pointer;
-    border:none;
-    border-radius:10px;
-    transition:0.2s;
-}
+        button {
+            font-size: 30px;
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
 
-button:hover{
-    transform:scale(1.2);
-}
+        button:hover {
+            transform: scale(1.2);
+        }
 
-</style>
+        a:hover {
+            color: white;
+            font-size: 19px;
+
+        }
+    </style>
 
 </head>
 
 <body>
 
-<h1>BATA NO ZAKE 👊</h1>
-<h2>Desconte sua raiva nele...</h2>
+    <h1>BATA NO ZAKE 👊</h1>
+    <h2>Desconte sua raiva nele...</h2>
 
-<div class="barra">
-<div id="vida"></div>
-</div>
+    <div class="barra">
+        <div id="vida"></div>
+    </div>
 
-<img src="apanhou0.jpeg" id="zake">
+    <img src="apanhou0.jpeg" id="zake">
 
-<div class="tools">
+    <div class="tools">
 
-<button onclick="bater(10)">🥊</button>
-<button onclick="bater(20)">🔨</button>
-<button onclick="bater(15)">👟</button>
-<button onclick="bater(40)">💣</button>
-<button onclick="carinho()">🤗</button>
-<button onclick="beijo()">😘</button>
+        <button onclick="bater(10)">🥊</button>
+        <button onclick="bater(20)">🔨</button>
+        <button onclick="bater(15)">👟</button>
+        <button onclick="bater(40)">💣</button>
+        <button onclick="carinho()">🤗</button>
+        <button onclick="beijo()">😘</button>
 
-</div>
+    </div>
 
-<audio id="somSoco">
-<source src="soco.mp3" type="audio/mpeg">
-</audio>
+    <audio id="somSoco">
+        <source src="soco.mp3" type="audio/mpeg">
+    </audio>
 
-<audio id="somBeijo">
-<source src="beijo.mp3" type="audio/mpeg">
-</audio>
+    <audio id="somBeijo">
+        <source src="beijo.mp3" type="audio/mpeg">
+    </audio>
 
-<script>
+    <script>
 
-let vida = 100;
+        let vida = 100;
 
-function atualizarImagem(){
+        function atualizarImagem() {
 
-    if(vida > 80){
-        document.getElementById("zake").src = "apanhou0.jpeg ";
-    }
-    else if(vida > 60){
-        document.getElementById("zake").src = "apanhou1.jpeg";
-    }
-    else if(vida > 40){
-        document.getElementById("zake").src = "apanhou2.jpeg";
-    }
-    else if(vida > 20){
-        document.getElementById("zake").src = "apanhou3.jpeg";
-    }
-    else{
-        document.getElementById("zake").src = "apanhou4.jpeg";
-    }
+            if (vida > 80) {
+                document.getElementById("zake").src = "apanhou0.jpeg ";
+            }
+            else if (vida > 60) {
+                document.getElementById("zake").src = "apanhou1.jpeg";
+            }
+            else if (vida > 40) {
+                document.getElementById("zake").src = "apanhou2.jpeg";
+            }
+            else if (vida > 20) {
+                document.getElementById("zake").src = "apanhou3.jpeg";
+            }
+            else {
+                document.getElementById("zake").src = "apanhou4.jpeg";
+            }
 
-}
+        }
 
-function bater(dano){
+        function bater(dano) {
 
-    vida -= dano;
+            vida -= dano;
 
-    if(vida < 0){
-        vida = 0;
-        alert("Zake foi molestado com sucesso ☠️");
-    }
+            if (vida < 0) {
+                vida = 0;
+                alert("Zake foi molestado com sucesso ☠️");
+            }
 
-    document.getElementById("vida").style.width = vida + "%";
+            document.getElementById("vida").style.width = vida + "%";
 
-    atualizarImagem();
+            atualizarImagem();
 
-    // animação tremida
-    let img = document.getElementById("zake");
-    img.classList.add("hit");
+            // animação tremida
+            let img = document.getElementById("zake");
+            img.classList.add("hit");
 
-    setTimeout(()=>{
-        img.classList.remove("hit");
-    },100);
+            setTimeout(() => {
+                img.classList.remove("hit");
+            }, 100);
 
-    // som
-    document.getElementById("somSoco").currentTime = 0;
-    document.getElementById("somSoco").play();
+            // som
+            document.getElementById("somSoco").currentTime = 0;
+            document.getElementById("somSoco").play();
 
-}
+        }
 
-function carinho(){
+        function carinho() {
 
-    vida += 15;
+            vida += 15;
 
-    if(vida > 100){
-        vida = 100;
-    }
+            if (vida > 100) {
+                vida = 100;
+            }
 
-    document.getElementById("vida").style.width = vida + "%";
-     document.getElementById("somBeijo").currentTime = 0;
-    document.getElementById("somBeijo").play();
+            document.getElementById("vida").style.width = vida + "%";
+            document.getElementById("somBeijo").currentTime = 0;
+            document.getElementById("somBeijo").play();
 
-    atualizarImagem();
+            atualizarImagem();
 
-    alert("Zake recebeu carinho 🙂");
+            alert("Zake recebeu carinho 🙂");
 
-}
+        }
 
-function beijo(){
+        function beijo() {
 
-    vida += 15;
+            vida += 15;
 
-    if(vida > 100){
-        vida = 100;
-    }
+            if (vida > 100) {
+                vida = 100;
+            }
 
-    document.getElementById("vida").style.width = vida + "%";
-     document.getElementById("somBeijo").currentTime = 0;
-    document.getElementById("somBeijo").play();
-    atualizarImagem();
-    alert("que isso... 🤨");
+            document.getElementById("vida").style.width = vida + "%";
+            document.getElementById("somBeijo").currentTime = 0;
+            document.getElementById("somBeijo").play();
+            atualizarImagem();
+            alert("que isso... 🤨");
 
-}
+        }
 
-</script>
+    </script>
 
     <a href="index.html">ZAKEVERSARIO</a>
     <a href="zake_starter_pack.html">ZAKE STARTER PACK</a>
 
 </body>
+
 </html>
